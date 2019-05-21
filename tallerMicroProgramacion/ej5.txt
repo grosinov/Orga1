@@ -1,0 +1,7 @@
+     |00| SET R0 , 0x02
+     |02| INC R0
+suma |04| DEC R0
+     |06| JZ fin
+     |08| ADD R1 , R0
+     |0a| JMP suma
+ fin |0c| JMP fin
