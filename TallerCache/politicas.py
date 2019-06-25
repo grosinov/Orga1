@@ -39,9 +39,28 @@ def RANDOM(ways, addr_tag, addr_set):
 
 # Implementame por favor!
 def LRU(ways, addr_tag, addr_set):
-    while True:
-        print('Implementame che!!!! (soy LRU)')
-        time.sleep(2)
+    # Me fijo si alguna de las vias esta vacia, en ese caso devuelvo cual
+    way_i = 0
+    for way in ways:
+        if not way[addr_set]['valid']:
+            return way_i
+        way_i += 1
+
+    # Si estoy aca es que ninguna esta vacia, tengo que desalojar alguna
+    # segun la politica FIFO, es decir tengo que sacar aquella que haya
+    # sido ingresada primero, para eso chequeo tengo que devolver la que
+    # tenga el stepFirstUse mas viejo (numericamente menor)
+    last_used = ways[0][addr_set]['stepChange']
+    way_last_used = 0
+    i = 0
+    for way in ways:
+        if way[addr_set]['stepChange'] < last_used:
+            # Encontre el minimo, actualizo
+            last_used = way[addr_set]['stepChange']
+            way_last_used = i
+        i += 1
+    return way_last_used
+
 
 
 # Implementame por favor! (si queres...)

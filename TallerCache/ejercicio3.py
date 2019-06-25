@@ -5,7 +5,7 @@ import pylab
 # Correspondencia directa, vario distintas lineas
 # y guardo el hit rate para cada configuracion
 # usando la secuencia de fetchs definida en benchmark.list
-lines = [1, 2, 4]  # Poner el numero de lineas a testear
+lines = [1, 2, 4, 8, 16, 32, 64]  # Poner el numero de lineas a testear
 res = []
 for l in lines:
     ca = CacheCorrespondenciaDirecta(
